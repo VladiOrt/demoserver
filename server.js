@@ -120,7 +120,7 @@ app.get("/", (req,res)=>{
 });
 
 app.post("/enviarData", (req,res)=>{
-    console.log(req.body)
+    console.log(req.query)
 
   
 
@@ -135,17 +135,17 @@ app.post("/enviarData", (req,res)=>{
         body: JSON.stringify(
             {
                 contact: {
-                    firstName: req.body.nombre, 
-                    phone: req.body.telefono,
-                    email: req.body.email,
+                    firstName: req.query.nombre, 
+                    phone: req.query.telefono,
+                    email: req.query.email,
                     orgname: 'Landing page todos los servicios',
-                    servicio_de_inters: req.body.zona,     
+                    servicio_de_inters: req.query.zona,     
                     orgid: "Landing page faciales",
 
                 },fieldValues:[{
                     list: "6",
                     form: "1",
-                    message: req.body.zona,
+                    message: req.query.zona,
                     orgid: "Landing page faciales",
                 }]
         })
@@ -157,7 +157,7 @@ app.post("/enviarData", (req,res)=>{
         .catch(err => console.error(err));
 
 
-        res.json({valido:1, msg:"Contacto Creado"})
+        res.json({valido:1, msg:response})
         
 });
 
@@ -166,7 +166,7 @@ app.post("/enviarData", (req,res)=>{
 //Rutas
 //app.use("/api", routes)
 
-const PORT = 8081;
+const PORT = 3000;
 
 app.listen(PORT,  () => {
     console.log("Servidor corriendo en el puert " ,PORT)
