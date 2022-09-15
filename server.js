@@ -26,10 +26,6 @@ app.use(express.urlencoded({extended:true}))
 
 
 
-app.use(cors());
-const { createProxyMiddleware } = require('http-proxy-middleware');
-
-
 
 
 
@@ -127,16 +123,11 @@ app.get("/", (req,res)=>{
 
 
 
-
-app.post("/enviarData", createProxyMiddleware({ 
-    target: 'http://landing1.resvera.com.mx/', //original url
-    changeOrigin: true, 
-    //secure: false,
-    onProxyRes: function (proxyRes, req, res) {
-       proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+app.post("/enviarData", (req,res)=>{
     console.log(req.query)
 
-  
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
 
     const options = {
