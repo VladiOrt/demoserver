@@ -19,13 +19,15 @@ var corsOptions={
 const sdk = require('api')('@activecampaign/v3#61g32ml76em4eb');
 
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
+
 app.use(express.urlencoded({extended:true}))
 
 
 
-
+app.use(cors());
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 
 
@@ -119,7 +121,19 @@ app.get("/", (req,res)=>{
     res.json({msg:"Bienvenido a la app de Pagos"})
 });
 
-app.post("/enviarData", (req,res)=>{
+
+
+
+
+
+
+
+app.post("/enviarData", createProxyMiddleware({ 
+    target: 'http://landing1.resvera.com.mx/', //original url
+    changeOrigin: true, 
+    //secure: false,
+    onProxyRes: function (proxyRes, req, res) {
+       proxyRes.headers['Access-Control-Allow-Origin'] = '*';
     console.log(req.query)
 
   
@@ -164,7 +178,7 @@ app.post("/enviarData", (req,res)=>{
      
 
 //Rutas
-//app.use("/api", routes)
+app.use("/api", routes)
 
 const PORT = 3000;
 
