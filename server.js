@@ -19,7 +19,7 @@ var corsOptions={
 const sdk = require('api')('@activecampaign/v3#61g32ml76em4eb');
 
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use(express.urlencoded({extended:true}))
@@ -126,10 +126,6 @@ app.get("/", (req,res)=>{
 app.post("/enviarData", (req,res)=>{
     console.log(req.query)
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-
-
     const options = {
         method: 'POST',
         headers: {
@@ -147,12 +143,7 @@ app.post("/enviarData", (req,res)=>{
                     servicio_de_inters: req.query.zona,     
                     orgid: "Landing page faciales",
 
-                },fieldValues:[{
-                    list: "6",
-                    form: "1",
-                    message: req.query.zona,
-                    orgid: "Landing page faciales",
-                }]
+                }
         })
       };
       
