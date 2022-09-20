@@ -180,6 +180,30 @@ app.post("/enviarData", (req,res)=>{
             .then(response => response.json())
             .catch(err => console.error(err));
 
+
+            const datosPersonalizados = {
+                method: 'PUT',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                  'Api-Token': 'c95cdd96d4e0f990c4e706f0dc519789031fd7dcb4a679d1c14bc3c647018e84592c1904'
+                },
+                body: JSON.stringify(
+                    {                        
+                        fieldValues:{
+                            field:"36",
+                            value: req.query.zona,
+                            contact: idContact,
+                        }
+                })
+              };
+            fetch('https://mxnycorp.api-us1.com/api/3/contacts/'+idContact, datosPersonalizados)
+            .then(response => response.json())
+            .catch(err => console.error(err));
+
+
+
+
         })
         .catch(err => console.error(err));
 
