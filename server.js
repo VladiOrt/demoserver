@@ -189,12 +189,15 @@ app.post("/enviarData", (req,res)=>{
                   'Api-Token': 'c95cdd96d4e0f990c4e706f0dc519789031fd7dcb4a679d1c14bc3c647018e84592c1904'
                 },
                 body: JSON.stringify(
-                    {                        
-                        fieldValues:{
-                            field:"36",
-                            value: req.query.zona,
-                            contact: idContact,
-                        }
+                    {            
+                        contact:{
+                            fieldValues:[{
+                                field:"36",
+                                value: req.query.zona,
+                                contact: idContact,
+                            }]
+                        }            
+                        
                 })
               };
             fetch('https://mxnycorp.api-us1.com/api/3/contacts/'+idContact, datosPersonalizados)
