@@ -50,7 +50,7 @@ app.post("/enviarData", (req,res)=>{
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          'Api-Token': 'c95cdd96d4e0f990c4e706f0dc519789031fd7dcb4a679d1c14bc3c647018e84592c1904'
+          'Api-Token': 'be1651cf7eb5d3e89de104d71cc3de33cd91ca6cbb085b346bee78b680551cc42e533e18'
         },
         body: JSON.stringify(
             {
@@ -85,7 +85,7 @@ app.post("/enviarData", (req,res)=>{
                 headers: {
                   Accept: 'application/json',
                   'Content-Type': 'application/json',
-                  'Api-Token': 'c95cdd96d4e0f990c4e706f0dc519789031fd7dcb4a679d1c14bc3c647018e84592c1904'
+                  'Api-Token': 'be1651cf7eb5d3e89de104d71cc3de33cd91ca6cbb085b346bee78b680551cc42e533e18'
                 },
                 body: JSON.stringify(
                     {
@@ -107,7 +107,7 @@ app.post("/enviarData", (req,res)=>{
                 headers: {
                   Accept: 'application/json',
                   'Content-Type': 'application/json',
-                  'Api-Token': 'c95cdd96d4e0f990c4e706f0dc519789031fd7dcb4a679d1c14bc3c647018e84592c1904'
+                  'Api-Token': 'be1651cf7eb5d3e89de104d71cc3de33cd91ca6cbb085b346bee78b680551cc42e533e18'
                 },
 
                 body: JSON.stringify(
@@ -172,7 +172,7 @@ cron.schedule('*/2 * * * *', () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          'Api-Token': 'c95cdd96d4e0f990c4e706f0dc519789031fd7dcb4a679d1c14bc3c647018e84592c1904'
+          'Api-Token': 'be1651cf7eb5d3e89de104d71cc3de33cd91ca6cbb085b346bee78b680551cc42e533e18'
         },
       };
     fetch('https://mxnycorp.api-us1.com/api/3/contacts?status=-1&filters[updated_after]='+hoy+'&orders[email]=ASC', optionsLista)
