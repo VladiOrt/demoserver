@@ -98,7 +98,10 @@ app.post("/enviarData", (req,res)=>{
                 })
               };
             fetch('https://mxnycorp.api-us1.com/api/3/contactLists', optionsLista)
-            .then(response => response.json())
+            .then(response => {
+                response.json()
+                console.log("respuesta --> ", response)
+            })
             .catch(err => console.error(err));
 
 
@@ -140,12 +143,11 @@ app.post("/enviarData", (req,res)=>{
                 })
               };
             fetch('https://mxnycorp.api-us1.com/api/3/contacts/'+idContact, datosPersonalizados)
-            .then(response => response.json())
+            .then(response => {
+                response.json()
+                console.log("respuesta 2 ---> ",response )
+            })
             .catch(err => console.error(err));
-
-
-
-
         })
         .catch(err => console.error(err));
 
