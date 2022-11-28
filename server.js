@@ -77,6 +77,12 @@ app.post("/enviarData", (req,res)=>{
                 lista = 6
             } else if(req.query.landing =='landing2'){
                 lista = 8
+            }else if(req.query.landing =='landing03'){
+                lista = 22
+            }else if(req.query.landing =='landing04'){
+                lista = 23
+            }else if(req.query.landing =='landing05'){
+                lista = 24
             }
             
 
